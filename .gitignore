@@ -1,1 +1,11 @@
 .idea
+.gradle
+build
+gradle
+build.gradle
+gradle.properties
+gradlew
+gradlew.bat
+local.properties
+Mathhammer.iml
+settings.gradle
