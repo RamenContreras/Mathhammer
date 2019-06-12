@@ -9,3 +9,5 @@ gradlew.bat
 local.properties
 Mathhammer.iml
 settings.gradle
+
+app/src/main/res
