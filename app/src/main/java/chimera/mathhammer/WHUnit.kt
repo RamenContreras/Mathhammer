@@ -9,5 +9,14 @@ class WHUnit(var att: Int = 1,
              var dmg: Int = 1,
              var wound: Int = 1) {
 
-var reroll = arrayOf("rerollNone_radio", "rerollOne_radio", "rerollMiss_radio")
+    var reroll: Int = 0
+
+    fun setRR(string: String){
+        if (string == "Rerolling nothing" )
+            reroll = 0
+        else if (string == "Rerolling 1's")
+            reroll = 1
+        else if (string == "Rerolling misses")
+            reroll = bs - 1
+    }
 }

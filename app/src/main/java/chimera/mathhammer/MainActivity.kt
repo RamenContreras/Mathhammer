@@ -46,11 +46,18 @@ class MainActivity : AppCompatActivity() {
 
 
         radioGroup?.setOnCheckedChangeListener { radioGroup, checkedId ->
-            if (radioGroup.rerollNone_radio.id == checkedId)
-                Toast.makeText(applicationContext, "No Rerolls", Toast.LENGTH_SHORT).show()
-            else if (R.id.rerollOne_radio == checkedId)
-                Toast.makeText(applicationContext, "Rerolling 1's", Toast.LENGTH_SHORT).show()
-            else Toast.makeText(applicationContext, "Rerolling misses", Toast.LENGTH_SHORT).show()
+            if (radioGroup.rerollNone_radio.id == checkedId) {
+                attacker.setRR("Rerolling nothing")
+                updateText(textview_calculate, attacker, calculator)
+            }
+            else if (radioGroup.rerollOne_radio.id == checkedId) {
+                attacker.setRR("Rerolling 1's")
+                updateText(textview_calculate, attacker, calculator)
+            }
+            else if (radioGroup.rerollMiss_radio.id == checkedId) {
+                attacker.setRR("Rerolling misses")
+                updateText(textview_calculate, attacker, calculator)
+            }
         }
 
         //calculate(bsEntry_text, textview_calculate)
@@ -59,6 +66,6 @@ class MainActivity : AppCompatActivity() {
 
 fun updateText(answertext: TextView, attacker: WHUnit, calculator: Calculator){
 
-    answertext.text = calculator.toHit(attacker.bs).toString()
+    answertext.text = calculator.toHit(attacker.bs, attacker.reroll).toString()
 
 }
