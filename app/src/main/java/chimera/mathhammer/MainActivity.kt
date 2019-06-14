@@ -5,18 +5,23 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 
 class MainActivity : AppCompatActivity() {
+
+    val attacker = WHUnit()
+    val defender = WHUnit(2)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        bsEntry_text.setText("4")
+        bsEntry_text.setText(attacker.bs.toString())
 
         bsEntry_text.addTextChangedListener(object : TextWatcher {
 
@@ -31,14 +36,14 @@ class MainActivity : AppCompatActivity() {
                 if (bsEntry_text.text.isEmpty()) {
                 }
                 else {
-                    calculate(bsEntry_text, textview_calculate)
+                    //updateText(bsEntry_text, textview_calculate, radioGroup)
                 }
             }
         })
 
 
-        radioGroup?.setOnCheckedChangeListener { group, checkedId ->
-            if (R.id.rerollNone_radio == checkedId)
+        radioGroup?.setOnCheckedChangeListener { radioGroup, checkedId ->
+            if (radioGroup.rerollNone_radio.id == checkedId)
                 Toast.makeText(applicationContext, "No Rerolls", Toast.LENGTH_SHORT).show()
             else if (R.id.rerollOne_radio == checkedId)
                 Toast.makeText(applicationContext, "Rerolling 1's", Toast.LENGTH_SHORT).show()
@@ -49,12 +54,13 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-/*fun updateText(answertext: TextView){
+fun updateText(bs: EditText, answertext: TextView, reroll: RadioGroup){
+    answertext.text = calculate(bs).toString()
 
-}*/
+}
 
-fun calculate(bs: EditText, answertext: TextView){
-    answertext.text = toHit(bs).toString()
+fun calculate(bs: EditText):Double{
+    return toHit(bs)
 }
 
 fun toHit(bs: EditText): Double{
