@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     val attacker = WHUnit()
     val defender = WHUnit(2)
 
+    val calculator = Calculator()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,7 +38,8 @@ class MainActivity : AppCompatActivity() {
                 if (bsEntry_text.text.isEmpty()) {
                 }
                 else {
-                    //updateText(bsEntry_text, textview_calculate, radioGroup)
+                    attacker.bs = s.toString().toInt()
+                    updateText(textview_calculate, attacker, calculator)
                 }
             }
         })
@@ -54,21 +57,8 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-fun updateText(bs: EditText, answertext: TextView, reroll: RadioGroup){
-    answertext.text = calculate(bs).toString()
+fun updateText(answertext: TextView, attacker: WHUnit, calculator: Calculator){
 
-}
+    answertext.text = calculator.toHit(attacker.bs).toString()
 
-fun calculate(bs: EditText):Double{
-    return toHit(bs)
-}
-
-fun toHit(bs: EditText): Double{
-    val BS = bs.text.toString().toDouble()
-
-    val hit = ((7-BS)/6)
-    val reroll = ((7-BS)/36)
-    val total = hit + 0 //reroll
-
-    return total
 }

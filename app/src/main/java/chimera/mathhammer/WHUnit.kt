@@ -10,8 +10,4 @@ class WHUnit(var att: Int = 1,
              var wound: Int = 1) {
 
 var reroll = arrayOf("rerollNone_radio", "rerollOne_radio", "rerollMiss_radio")
-
-    //
-
-
 }
