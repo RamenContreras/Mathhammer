@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Mathhammer</string>
-    <string name="textview_calculate">test</string>
+    <string name="toHit_textView">test</string>
 </resources>
