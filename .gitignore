@@ -1,4 +1,5 @@
 *.iml
+.idea/
 .gradle
 /local.properties
 /.idea/caches
@@ -11,3 +12,19 @@
 /build
 /captures
 .externalNativeBuild
+
+app/build.gradle
+app/src/main/res/drawable-v24/
+app/src/main/res/drawable/
+app/src/main/res/mipmap-anydpi-v26/
+app/src/main/res/mipmap-hdpi/
+app/src/main/res/mipmap-xhdpi/
+app/src/main/res/mipmap-xxhdpi/
+app/src/main/res/mipmap-xxxhdpi/
+build.gradle
+gradle.properties
+gradle/
+gradlew
+gradlew.bat
+settings.gradle
+
