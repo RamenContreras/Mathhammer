@@ -6,6 +6,7 @@ class Calculator() {
     var hitting = 0.5
     var wounding = 0.5
     var saving = 0.5
+    var shrugOff = 0.5
 
     fun toHit(bs: Int, rr: Int): Double {
         val BS = bs.toDouble()
@@ -60,6 +61,23 @@ class Calculator() {
         val total = (notSave-1)/6
         saving = total
 
+
+        return total
+    }
+
+    fun toFNP(fnp: Int): Double{
+        val FNP = fnp.toDouble()
+
+        val toFNP = ((FNP-1)/6)
+        var total = toFNP
+        if (toFNP > 1.0){
+            total = 1.0
+        }
+        else if (toFNP < 0)
+        {
+            total = 0.0
+        }
+        shrugOff = total
 
         return total
     }

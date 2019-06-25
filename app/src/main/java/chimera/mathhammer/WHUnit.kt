@@ -1,24 +1,26 @@
 package chimera.mathhammer
 
-class WHUnit(var att: Int = 1,
+class WHUnit(var att: Double = 1.0,
              var bs: Int = 4,
              var str: Int = 4,
              var tough: Int = 4,
-             var sv: Int = 4,       //save
+             var sv: Int = 3,       //save
              var isv: Int = 0,       //invulnerable save
+             var fnp: Int = 7,      //feel no pain
              var ap: Int = 0,
              var dmg: Int = 1,
              var wound: Int = 1) {
 
-    var reroll: Int = 0
+    var hreroll: Int = 0        //hit reroll
+    var wreroll: Int = 0        //wound reroll
 
     fun setHRR(string: String){
         if (string == "Rerolling nothing" )
-            reroll = 0
+            hreroll = 0
         else if (string == "Rerolling 1's")
-            reroll = 1
+            hreroll = 1
         else if (string == "Rerolling misses")
-            reroll = bs - 1
+            hreroll = bs - 1
     }
 
     fun setWRR(string: String, tou: Int){           //well this probably needs to be in Calculator
@@ -37,10 +39,10 @@ class WHUnit(var att: Int = 1,
             rr = 5
 
         if (string == "Rerolling nothing" )
-            reroll = 0
+            wreroll = 0
         else if (string == "Rerolling 1's")
-            reroll = 1
+            wreroll = 1
         else if (string == "Rerolling misses")
-            reroll = rr-1
+            wreroll = rr-1
     }
 }
